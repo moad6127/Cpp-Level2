@@ -7,6 +7,7 @@ int main()
 
 	Cat nacho;
 	nacho.Meow();
+	nacho.GetAge();	
 	std::cout << nacho.GetAge() << std::endl;
 
 	//	
