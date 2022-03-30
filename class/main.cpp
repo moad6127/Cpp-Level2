@@ -2,10 +2,23 @@
 #include"Point2D.h"
 #include"StudentClass.h"
 
+class MyClass
+{
+public:
+	MyClass()
+	{
+		std::cout << "Constructor" << std::endl;
+	}
+	~MyClass()
+	{
+		std::cout << "Destructor" << std::endl;
+	}
+};
 
 int main()
 {
-	Class myClass;
-	Student student[10];
+	MyClass c;
+	
+	std::cout << "Good" << std::endl;
 
 }
