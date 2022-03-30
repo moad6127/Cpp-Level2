@@ -1,24 +1,29 @@
 #include<iostream>
-#include"Point2D.h"
-#include"StudentClass.h"
 
-class MyClass
+class Quest
 {
+private:
+	int mID;
+	int mExp;
+	
 public:
-	MyClass()
+	//Default Constructor
+	Quest()
 	{
-		std::cout << "Constructor" << std::endl;
+		mID = 0;
+		mExp = 0;
 	}
-	~MyClass()
+
+	void Print()
 	{
-		std::cout << "Destructor" << std::endl;
+		std::cout << "Quest ID : " << mID << std::endl;
+		std::cout << "Quest mExp : " << mExp << std::endl;
 	}
 };
 
 int main()
 {
-	MyClass c;
-	
-	std::cout << "Good" << std::endl;
+	Quest q1;
 
+	q1.Print();
 }
