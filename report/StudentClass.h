@@ -6,6 +6,7 @@ class Student
 	int mScore;
 
 public:
+	Student();
 	void SetName(char* name);
 	void SetStudentNumber(int value);
 	void SetScore(int value);
@@ -20,6 +21,7 @@ class Class
 	Student* pmClassStudent;
 
 public:
+	Class();
 	void SetSchoolYear(int value);
 	void SetScoolClasss(int value);
 	void SetStudent(Student* student);

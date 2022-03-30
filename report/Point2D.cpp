@@ -3,6 +3,12 @@
 #include "Point2D.h"
 
 
+Point2D::Point2D()
+{
+    mX = 0;
+    mY = 0;
+}
+
 void Point2D::SetX(float value)
 {
     mX = value;

@@ -2,6 +2,13 @@
 #include<cstring>
 #include "StudentClass.h"
 
+Student::Student()
+{
+	mName[1] = '\0';
+	mStudentNumber = 1;
+	mScore = 1;
+}
+
 void Student::SetName(char* name)
 {
 	strcpy_s(mName, name);
@@ -29,6 +36,13 @@ int Student::GetScore() const
 
 
 
+
+Class::Class()
+{
+	mSchoolYear = 1;
+	mSchoolClass = 1;
+	pmClassStudent = nullptr;
+}
 
 void Class::SetSchoolYear(int value)
 {

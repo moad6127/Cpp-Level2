@@ -5,6 +5,7 @@ class Point2D
 	float mY;
 
 public:
+	Point2D();
 	void SetX(float value);
 	void SetY(float value);
 	float ZeroPointLength();
