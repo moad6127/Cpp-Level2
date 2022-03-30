@@ -21,7 +21,7 @@ int main()
 	student[5].SetScore(50);
 	Class class1;
 	class1.SetStudent(student);
-	class1.PrintStudentName();
-	std::cout<<class1.SumStudentScore()<<std::endl;
+	class1.PrintStudentList();
+	std::cout<<"학생들의 총합 : " << class1.SumStudentScore() << std::endl;
 
 }

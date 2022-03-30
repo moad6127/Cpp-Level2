@@ -11,6 +11,7 @@ public:
 	void SetStudentNumber(int value);
 	void SetScore(int value);
 	void GetName() const;
+	int GetStudentNumber() const;
 	int GetScore() const;
 
 };
@@ -25,7 +26,8 @@ public:
 	void SetSchoolYear(int value);
 	void SetScoolClasss(int value);
 	void SetStudent(Student* student);
-	void PrintStudentName();
+	void PrintStudentList();
 	int SumStudentScore();
+
 };
 

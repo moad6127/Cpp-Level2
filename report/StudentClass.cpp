@@ -29,6 +29,11 @@ void Student::GetName() const
 	std::cout << mName << std::endl;
 }
 
+int Student::GetStudentNumber() const
+{
+	return mStudentNumber;
+}
+
 int Student::GetScore() const
 {
 	return mScore;
@@ -60,11 +65,15 @@ void Class::SetStudent(Student* student)
 	pmClassStudent = student;
 }
 
-void Class::PrintStudentName()
+void Class::PrintStudentList()
 {
 	for (int i = 0; i < 10; i++)
 	{
+		std::cout << "이름 : ";
 		pmClassStudent[i].GetName();
+		std::cout << "번호 :" << pmClassStudent[i].GetStudentNumber() << std::endl;
+		std::cout << "점수 :" << pmClassStudent[i].GetScore() << std::endl;
+		std::cout << "-------------------------" << std::endl;
 	}
 }
 
