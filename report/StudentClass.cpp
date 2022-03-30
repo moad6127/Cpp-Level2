@@ -4,7 +4,7 @@
 
 void Student::SetName(char* name)
 {
-	strcpy_s(mName,name);
+	strcpy_s(mName, name);
 }
 
 void Student::SetStudentNumber(int value)
