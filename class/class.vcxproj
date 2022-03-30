@@ -141,13 +141,9 @@
   <ItemGroup>
     <ClCompile Include="Cat.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="Point2D.cpp" />
-    <ClCompile Include="StudentClass.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Cat.h" />
-    <ClInclude Include="Point2D.h" />
-    <ClInclude Include="StudentClass.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
