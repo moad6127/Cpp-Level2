@@ -1,37 +1,21 @@
 #include<iostream>
 
-class Quest
+class MyClass
 {
-private:
-	int mID;
-	int mExp;
-	
 public:
-	//Default Constructor
-	Quest()
-	{
-		mID = 0;
-		mExp = 0;
-	}
-	//Constructor Overloading
-	Quest(int id, int exp)
-	{
-		mID = id;
-		mExp = exp;
-	}
+	int mValue1{ 1 };
+	int mValue2{ 2 };
 
-	void Print()
-	{
-		std::cout << "Quest ID : " << mID << std::endl;
-		std::cout << "Quest mExp : " << mExp << std::endl;
-	}
+	//MyClass(int value1)
+	//{
+	//	mValue1 = value1;
+	//	mValue2 = 0;
+	//}
 };
 
 int main()
 {
-	Quest q1{};
-	Quest q2{ 10,100 };
-
-	q1.Print();
-	q2.Print();
+	MyClass c1; 
+	MyClass c2{ 1 };
+	MyClass C3{ 3,4 };
 }
