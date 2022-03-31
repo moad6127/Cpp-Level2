@@ -1,21 +1,28 @@
 #include<iostream>
 
-class MyClass
+
+class ClassB
 {
 public:
-	int mValue1{ 1 };
-	int mValue2{ 2 };
-
-	//MyClass(int value1)
-	//{
-	//	mValue1 = value1;
-	//	mValue2 = 0;
-	//}
+	class ClassA
+	{
+	public:
+		ClassA()
+		{
+			std::cout << "Class A Constructor!" << std::endl;
+		}
+	};
+	ClassA mA;
+public:
+	ClassB()
+	{
+		std::cout << "Class B Constructor!" << std::endl;
+	}
 };
 
 int main()
 {
-	MyClass c1; 
-	MyClass c2{ 1 };
-	MyClass C3{ 3,4 };
+	ClassB myClass;
+	ClassB::ClassA c1; //클래스B의 클래스A를 사용하기 위해서는 이런표기로 해야됨
+
 }
