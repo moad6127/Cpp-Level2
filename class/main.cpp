@@ -1,28 +1,25 @@
 #include<iostream>
 
-
-class ClassB
+class Quest
 {
+private:
+	const int mID;
+	int mExp;
+
 public:
-	class ClassA
+	Quest(int id, int exp) :
+		mID{id},
+		mExp{exp}
 	{
-	public:
-		ClassA()
-		{
-			std::cout << "Class A Constructor!" << std::endl;
-		}
-	};
-	ClassA mA;
-public:
-	ClassB()
+	}
+	void Print()
 	{
-		std::cout << "Class B Constructor!" << std::endl;
+		std::cout << "ID :" << mID<<", EXP : "<<mExp<<std::endl;
 	}
 };
 
 int main()
 {
-	ClassB myClass;
-	ClassB::ClassA c1; //클래스B의 클래스A를 사용하기 위해서는 이런표기로 해야됨
-
+	Quest q1(1, 100);
+	q1.Print();
 }
