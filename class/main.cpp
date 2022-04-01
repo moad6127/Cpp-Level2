@@ -1,33 +1,34 @@
 #include<iostream>
 
-class ClassA
+class Quest
 {
+private:
+	const int mID;
+	int mExp;
+
 public:
-	ClassA()
+	Quest() : mID{1},mExp{1}
 	{
-		std::cout << "ClassA" << std::endl;
+		std::cout << "Quest()" << std::endl;
+		// 기본작업
+
 	}
-};
-class ClassB
-{
-public:
-	ClassB()
+	Quest(std::string excel) : Quest()
 	{
-		std::cout << "ClassB" << std::endl;
+		std::cout << "Quest(string)" << std::endl;
+		//기본작업
+		// Quest(); // 인스턴스를 새로하나 만드는데 이름이없다.
+		//엑셀작업
 	}
-};
-class ClassC
-{
-	ClassA mA;
-	ClassB mB;
-public:
-	ClassC() : mA{}, mB{}
+	void Print()
 	{
-		std::cout << "ClassC" << std::endl;
+		std::cout << "ID :" << mID<<", EXP : "<<mExp<<std::endl;
 	}
 };
 
 int main()
 {
-	ClassC mC;
+	Quest q1("1.xlsx");
+	q1.Print();
+
 }
