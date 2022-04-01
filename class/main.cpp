@@ -1,25 +1,33 @@
 #include<iostream>
 
-class Quest
+class ClassA
 {
-private:
-	const int mID;
-	int mExp;
-
 public:
-	Quest(int id, int exp) :
-		mID{id},
-		mExp{exp}
+	ClassA()
 	{
+		std::cout << "ClassA" << std::endl;
 	}
-	void Print()
+};
+class ClassB
+{
+public:
+	ClassB()
 	{
-		std::cout << "ID :" << mID<<", EXP : "<<mExp<<std::endl;
+		std::cout << "ClassB" << std::endl;
+	}
+};
+class ClassC
+{
+	ClassA mA;
+	ClassB mB;
+public:
+	ClassC() : mA{}, mB{}
+	{
+		std::cout << "ClassC" << std::endl;
 	}
 };
 
 int main()
 {
-	Quest q1(1, 100);
-	q1.Print();
+	ClassC mC;
 }
