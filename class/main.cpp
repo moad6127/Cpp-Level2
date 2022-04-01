@@ -1,34 +1,25 @@
 #include<iostream>
 
-class Quest
-{
-private:
-	const int mID;
-	int mExp;
-
-public:
-	Quest() : mID{1},mExp{1}
+	class MyArray
 	{
-		std::cout << "Quest()" << std::endl;
-		// 기본작업
+	private:
+		int mLength;
+		int* mArray;
 
-	}
-	Quest(std::string excel) : Quest()
+	public:
+		MyArray(int length) : mLength{ length }
+		{
+			mArray = new int[length] {};
+		}
+		~MyArray()
+		{
+			delete[] mArray;
+			mArray = nullptr;
+		}
+	
+	};
+
+	int main()
 	{
-		std::cout << "Quest(string)" << std::endl;
-		//기본작업
-		// Quest(); // 인스턴스를 새로하나 만드는데 이름이없다.
-		//엑셀작업
+		MyArray array{ 20 };
 	}
-	void Print()
-	{
-		std::cout << "ID :" << mID<<", EXP : "<<mExp<<std::endl;
-	}
-};
-
-int main()
-{
-	Quest q1("1.xlsx");
-	q1.Print();
-
-}
