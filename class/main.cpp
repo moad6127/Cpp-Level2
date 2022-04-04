@@ -1,29 +1,24 @@
 #include<iostream>
 
-class MyClass
+
+//UID : Uniqe IDentifier
+//GUID: Globally UID
+//UUID: Universally UID
+
+class MyIDGenerator
 {
 public:
-	static int sCount;
-	MyClass()
+	static int sID;
+	static int Create()
 	{
-		std::cout<<++sCount<<std::endl;
-	}
-	~MyClass()
-	{
-		sCount--;
+		return ++sID;
 	}
 };
-int MyClass::sCount{ 0 };
+int MyIDGenerator::sID{ 0 };
 
 int main()
 {
-	MyClass c1;
-	{
-		for (int i = 1; i < 5;i++)
-		{
-			MyClass c2;
-		}
-		MyClass c3;
-	}
-	std::cout << MyClass::sCount << std::endl;
+	std::cout << MyIDGenerator::Create() << std::endl;
+
+
 }
