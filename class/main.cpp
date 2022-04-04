@@ -1,24 +1,30 @@
 #include<iostream>
 
+class Sword
+{
+	friend class Warrior;
+private:
+	int mDamage;
 
-//UID : Uniqe IDentifier
-//GUID: Globally UID
-//UUID: Universally UID
+public:
+	Sword(int dmg) : mDamage{ dmg }
+	{
+	}
 
-class MyIDGenerator
+};
+class Warrior
 {
 public:
-	static int sID;
-	static int Create()
+	void AttackWith(Sword& sword)
 	{
-		return ++sID;
+		std::cout << "Ä®À» ÈÖµé·¯ " << sword.mDamage << "¸¸Å­ÀÇ ÇÇÇØ¸¦ ÁÜ"<<std::endl;
 	}
 };
-int MyIDGenerator::sID{ 0 };
 
 int main()
 {
-	std::cout << MyIDGenerator::Create() << std::endl;
+	Sword shortSword(10);
+	Warrior player1;
 
-
+	player1.AttackWith(shortSword);
 }
