@@ -1,23 +1,29 @@
 #include<iostream>
 
-class Counter
+class MyClass
 {
 public:
 	static int sCount;
-	void Count()
+	MyClass()
 	{
-		std::cout << sCount++ << std::endl;
+		std::cout<<++sCount<<std::endl;
+	}
+	~MyClass()
+	{
+		sCount--;
 	}
 };
-
-int Counter::sCount = 1;
+int MyClass::sCount{ 0 };
 
 int main()
 {
-	Counter c1, c2, c3;
-	c1.Count();
-	c2.Count();
-	c3.Count();
-
-	std::cout << Counter::sCount << std::endl;
+	MyClass c1;
+	{
+		for (int i = 1; i < 5;i++)
+		{
+			MyClass c2;
+		}
+		MyClass c3;
+	}
+	std::cout << MyClass::sCount << std::endl;
 }
