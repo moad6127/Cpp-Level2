@@ -1,41 +1,23 @@
 #include<iostream>
 
-class MyClass
+class Counter
 {
-private:
-	int mValue1;
-	int mValue2;
-
 public:
-	MyClass() : MyClass(1,1)
+	static int sCount;
+	void Count()
 	{
-
-	}
-	MyClass(int v1, int v2) : mValue1{ v1 }, mValue2{ v2 }
-	{
-
-	}
-	void SetValue1(int x)
-	{
-		mValue1 = x;
-	}
-	void Print() const
-	{
-		std::cout << mValue1 << ", " << mValue2 << std::endl;
+		std::cout << sCount++ << std::endl;
 	}
 };
 
+int Counter::sCount = 1;
 
 int main()
 {
-	const MyClass c1;
-	const MyClass c2{ 2,2 };
-	const MyClass c3{ 3,3 };
-	MyClass c4{ 4,4 };
-	c4.SetValue1(10);
+	Counter c1, c2, c3;
+	c1.Count();
+	c2.Count();
+	c3.Count();
 
-	c1.Print();
-	c2.Print();
-	c3.Print();
-	c4.Print();
+	std::cout << Counter::sCount << std::endl;
 }
