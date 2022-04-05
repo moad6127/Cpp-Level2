@@ -2,7 +2,6 @@
 
 class Point2D
 {
-	friend Point2D operator+(const Point2D& pt1,const Point2D& pt2);
 
 private:
 	int mX;
@@ -16,15 +15,17 @@ public:
 	{
 		std::cout << "(" << mX << ", " << mY << ")" << std::endl;
 	}
-};
-Point2D operator+(const Point2D& pt1, const Point2D& pt2)
-{
-	Point2D result{ 0,0 };
-	result.mX = pt1.mX + pt2.mX;
-	result.mY = pt1.mY + pt2.mY;
+	Point2D operator+(const Point2D& rhs)
+	{
+		Point2D result{ 0,0 };
+		result.mX = this->mX + rhs.mX;
+		result.mY = this->mY + rhs.mY;
 
-	return result;
- }
+		return result;
+	}
+
+};
+
 int main()
 {
 	Point2D pt1{ 2,3 },pt2{4,5};
@@ -35,5 +36,7 @@ int main()
 
 	Point2D pt4 = pt1 + pt2 + pt3;
 	pt4.Print();
+
+	
 
 }
