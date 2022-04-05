@@ -1,50 +1,27 @@
-#include<iostream>
+#include <iostream>
+//
 
-class Sword;
-
-class Warrior
+class MyClass
 {
 public:
-	void AttackWith(Sword& sword);
-	void Defence();
+	int mValue;
 
+	MyClass(int value) : mValue{ value }
+	{
+		std::cout << "MyClass" << mValue << std::endl;
+	}
+	~MyClass()
+	{
+		std::cout << "    MyClass" << mValue << std::endl;
+	}
 };
 
-class Sword
+MyClass operator+(const MyClass& lhs,const MyClass& rhs)
 {
-	//friend class Warrior;
-	friend void Warrior::AttackWith(Sword& sword);
-	friend void UpgradeSword(Sword& sword)
-	{
-		sword.mDamage *= 2;
-		std::cout << "강화 성공!!@!" << std::endl
-			<< "데미지는 : " << sword.mDamage << std::endl;
-	}
-private:
-	int mDamage;
-
-public:
-	Sword(int dmg) : mDamage{ dmg }
-	{
-	}
-
-};	
-void Warrior::AttackWith(Sword& sword)
-{
-	std::cout << "칼을 휘들러 " << sword.mDamage << "만큼의 피해를 줌" << std::endl;
+	return MyClass(lhs.mValue + rhs.mValue);
 }
-//void UpgradeSword(Sword& sword)
-//{
-//	sword.mDamage *= 2;
-//	std::cout << "강화 성공!!@!" << std::endl
-//		<< "데미지는 : " << sword.mDamage << std::endl;
-//}
-
 int main()
 {
-	Sword shortSword(10);
-	Warrior player1;
-
-	player1.AttackWith(shortSword);
-	UpgradeSword(shortSword);
+	MyClass c1{ 1 }, c2{ 2 }, c3{ 3 };
+	MyClass c4 = c1 + c2 + c3;
 }
