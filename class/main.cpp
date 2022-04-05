@@ -1,27 +1,39 @@
 #include <iostream>
-//
 
-class MyClass
+class Point2D
 {
-public:
-	int mValue;
+	friend Point2D operator+(const Point2D& pt1,const Point2D& pt2);
 
-	MyClass(int value) : mValue{ value }
+private:
+	int mX;
+	int mY;
+public:
+	Point2D(int x, int y) : mX{ x }, mY{ y }
 	{
-		std::cout << "MyClass" << mValue << std::endl;
+
 	}
-	~MyClass()
+	void Print()
 	{
-		std::cout << "    MyClass" << mValue << std::endl;
+		std::cout << "(" << mX << ", " << mY << ")" << std::endl;
 	}
 };
-
-MyClass operator+(const MyClass& lhs,const MyClass& rhs)
+Point2D operator+(const Point2D& pt1, const Point2D& pt2)
 {
-	return MyClass(lhs.mValue + rhs.mValue);
-}
+	Point2D result{ 0,0 };
+	result.mX = pt1.mX + pt2.mX;
+	result.mY = pt1.mY + pt2.mY;
+
+	return result;
+ }
 int main()
 {
-	MyClass c1{ 1 }, c2{ 2 }, c3{ 3 };
-	MyClass c4 = c1 + c2 + c3;
+	Point2D pt1{ 2,3 },pt2{4,5};
+	pt1.Print();
+
+	Point2D pt3 =pt1 + pt2;
+	pt3.Print();
+
+	Point2D pt4 = pt1 + pt2 + pt3;
+	pt4.Print();
+
 }
