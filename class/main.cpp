@@ -1,61 +1,26 @@
 #include <iostream>
 
-class Point2D
+class MyArray
 {
-
 private:
-	int mX;
-	int mY;
+	int mArray[10];
 public:
-	Point2D(int x, int y) : mX{ x }, mY{ y }
+	MyArray() : mArray{}
 	{
 
 	}
-	void Print()
-	{
-		std::cout << "(" << mX << ", " << mY << ")" << std::endl;
-	}
-	Point2D operator+(const Point2D& rhs)
-	{
-		Point2D result{ 0,0 };
-		result.mX = this->mX + rhs.mX;
-		result.mY = this->mY + rhs.mY;
 
-		return result;
-	}
-	const Point2D& operator++() //전위 연산자
-	{
-		++mX;
-		++mY;
-
-		return *this;
-	}
-	const Point2D& operator++(int value)
-	{
-		//반환 후 증가
-		Point2D temp{*this};
-		++(*this);
-
-		return temp;
-
+	int& operator[](int index)	// 값을 바꾸고싶으면 반환형태를 int&로 만들어야 한다.								// 
+	{							// 값을 못바꾸게 하려면 int형을 반환해주면 된다.
+		return mArray[index];
 	}
 };
 
 int main()
 {
-	Point2D pt1{ 2,3 },pt2{4,5};
-	pt1.Print();
+	MyArray array1;
+	std::cout << array1[0] << std::endl;
+	array1[0] = 1;
+	std::cout << array1[0] << std::endl;
 
-	Point2D pt3 =pt1 + pt2;
-	pt3.Print();
-
-	Point2D pt4 = pt1 + pt2 + pt3;
-	pt4.Print();
-
-	Point2D pt5 = ++pt1;
-	pt5.Print();
-	
-	Point2D pt6 = pt1++;
-	pt6.Print();
-	pt1.Print();
 }
