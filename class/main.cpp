@@ -1,5 +1,4 @@
 #include <iostream>
-#include <cmath>
 class Point2D
 {
 private:
@@ -11,16 +10,28 @@ public:
 	{
 
 	}
-	operator const float() //형변환은 반환타입을 쓰지않는다.
+	void operator() ()
 	{
-		return sqrt(mX * mX + mY * mY);
+		mX = 0;
+		mY = 0;
+	}
+	void operator() (int x, int y)
+	{
+		mX = x;
+		mY = y;
+	}
+	void Print()
+	{
+		std::cout << "(" << mX << ", " << mY << ")" << std::endl;
 	}
 };
 
 int main()
 {
 	Point2D pt1{ 2, 3 };
-
-	float distnace = pt1;
-	std::cout << distnace << std::endl;
+	// function + object = functor
+	pt1();
+	pt1.Print();
+	pt1(3, 3);
+	pt1.Print();
 }
