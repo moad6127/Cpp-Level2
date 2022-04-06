@@ -23,7 +23,22 @@ public:
 
 		return result;
 	}
+	const Point2D& operator++() //전위 연산자
+	{
+		++mX;
+		++mY;
 
+		return *this;
+	}
+	const Point2D& operator++(int value)
+	{
+		//반환 후 증가
+		Point2D temp{*this};
+		++(*this);
+
+		return temp;
+
+	}
 };
 
 int main()
@@ -37,6 +52,10 @@ int main()
 	Point2D pt4 = pt1 + pt2 + pt3;
 	pt4.Print();
 
+	Point2D pt5 = ++pt1;
+	pt5.Print();
 	
-
+	Point2D pt6 = pt1++;
+	pt6.Print();
+	pt1.Print();
 }
