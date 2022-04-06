@@ -1,26 +1,26 @@
 #include <iostream>
-
-class MyArray
+#include <cmath>
+class Point2D
 {
 private:
-	int mArray[10];
+	int mX;
+	int mY;
+
 public:
-	MyArray() : mArray{}
+	Point2D(int x, int y) :mX{ x }, mY{ y }
 	{
 
 	}
-
-	int& operator[](int index)	// 값을 바꾸고싶으면 반환형태를 int&로 만들어야 한다.								// 
-	{							// 값을 못바꾸게 하려면 int형을 반환해주면 된다.
-		return mArray[index];
+	operator const float() //형변환은 반환타입을 쓰지않는다.
+	{
+		return sqrt(mX * mX + mY * mY);
 	}
 };
 
 int main()
 {
-	MyArray array1;
-	std::cout << array1[0] << std::endl;
-	array1[0] = 1;
-	std::cout << array1[0] << std::endl;
+	Point2D pt1{ 2, 3 };
 
+	float distnace = pt1;
+	std::cout << distnace << std::endl;
 }
