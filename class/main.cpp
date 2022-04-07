@@ -1,29 +1,26 @@
 #include <iostream>
-class Point2D
+
+class Charater
 {
-	friend std::ostream& operator<< (std::ostream& os,const Point2D& pt);
-private:
-	int mX;
-	int mY;
-
 public:
-	Point2D(int x, int y) :mX{ x }, mY{ y }
+	Charater& Move()
 	{
-
+		std::cout << "Move" << std::endl;
+		return *this;
 	}
-
+	Charater& TurnLeft()
+	{
+		std::cout << "TurnLeft" << std::endl;
+		return *this;
+	}
+	Charater& TurnRigth()
+	{
+		std::cout << "TurnRigth" << std::endl;
+		return *this;
+	}
 };
-std::ostream& operator<< (std::ostream& os,const Point2D& pt)
-{	//ostream은 생성자를 private로 만들수 없게 해놓았다.
-	//따라서 값에의한 호출말고 레퍼런스로 해야된다.
-	os << "(" << pt.mX << ", " << pt.mY << ")" << std::endl;
-	return os;
-}
-
 int main()
 {
-	Point2D pt1{ 2, 3 };
-
-
-	std::cout << pt1;
+	Charater player;
+	player.Move().TurnLeft().TurnRigth();
 }
