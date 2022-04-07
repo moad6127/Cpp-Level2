@@ -1,26 +1,36 @@
 #include <iostream>
 
-class Charater
+class MyClass
 {
 public:
-	Charater& Move()
+	int mValue;
+
+	MyClass()
 	{
-		std::cout << "Move" << std::endl;
+		std::cout << "MyClass()" << std::endl;
+	}
+	MyClass(int x) : mValue{ x }
+	{
+		std::cout << "MyClass(int)" << std::endl;
+	};
+	MyClass(const MyClass& c) : mValue{c.mValue}
+	{
+		std::cout << "MyClass(const MyClass&)" << std::endl;
+	}
+	MyClass& operator=(const MyClass& c)
+	{
+		mValue = c.mValue;
+		std::cout << "operator=" << std::endl;
 		return *this;
 	}
-	Charater& TurnLeft()
-	{
-		std::cout << "TurnLeft" << std::endl;
-		return *this;
-	}
-	Charater& TurnRigth()
-	{
-		std::cout << "TurnRigth" << std::endl;
-		return *this;
-	}
+
 };
+
 int main()
 {
-	Charater player;
-	player.Move().TurnLeft().TurnRigth();
+	MyClass c1{ MyClass{1} }; //
+	MyClass c2,c3 ;
+
+	c2 = c3 = c1;
+	std::cout << c2.mValue << std::endl;
 }
