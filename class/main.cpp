@@ -1,24 +1,39 @@
 #include <iostream>
-
-class CPU
-{
-
-};
-class Keyboard
-{
-
-};
-class Notebook
+//게임 개발자
+class GameDeveloper
 {
 public:
-	CPU mCPU;				// is-part-of : 멤버 변수화
-	Keyboard* mKeyboard;	// has-a : 멤버 포인터 변수화
-	
-	User* mpUser;			// use-a : 멤버 포인터 변수화
+	std::string mName;
+	int mAge;
+};
+
+class Programmer : public GameDeveloper
+{
+
+public:
+	void Coding();
+	void Debugging();
+};
+class Designer : public GameDeveloper
+{
+public:
+	void Documentation();
+	void Presentation();
+};
+class ChiefProgrammer :	public Programmer
+{
+public:
+	void Architecture();
+	void Scheduling();
+};
+class ChiefDesinger : public Designer
+{
+public:
+	void Meeting();
+	void Scheduling();
 };
 
 int main()
 {
-
 
 }
