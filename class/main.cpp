@@ -1,36 +1,24 @@
 #include <iostream>
 
-class MyClass
+class CPU
+{
+
+};
+class Keyboard
+{
+
+};
+class Notebook
 {
 public:
-	int mValue;
-
-	MyClass()
-	{
-		std::cout << "MyClass()" << std::endl;
-	}
-	MyClass(int x) : mValue{ x }
-	{
-		std::cout << "MyClass(int)" << std::endl;
-	};
-	MyClass(const MyClass& c) : mValue{c.mValue}
-	{
-		std::cout << "MyClass(const MyClass&)" << std::endl;
-	}
-	MyClass& operator=(const MyClass& c)
-	{
-		mValue = c.mValue;
-		std::cout << "operator=" << std::endl;
-		return *this;
-	}
-
+	CPU mCPU;				// is-part-of : 멤버 변수화
+	Keyboard* mKeyboard;	// has-a : 멤버 포인터 변수화
+	
+	User* mpUser;			// use-a : 멤버 포인터 변수화
 };
 
 int main()
 {
-	MyClass c1{ MyClass{1} }; //
-	MyClass c2,c3 ;
 
-	c2 = c3 = c1;
-	std::cout << c2.mValue << std::endl;
+
 }
