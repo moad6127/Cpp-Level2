@@ -9,4 +9,6 @@ int main()
 	Point2D A3;
 	A3 = A1 + A2;
 	A3.PirntX_Y();
+	A3 = A1 - A2;
+	std::cout << A3 << A1 << A2 << std::endl;
 }

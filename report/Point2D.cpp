@@ -36,3 +36,16 @@ Point2D operator+(const Point2D& A, const Point2D& B)
     temp.mY = A.mY + B.mY;
     return temp;
 }
+
+Point2D operator-(const Point2D& A, const Point2D& B)
+{
+    Point2D temp{};
+    temp.mX = A.mX - B.mX;
+    temp.mY = A.mY - B.mY;
+    return temp;
+}
+std::ostream& operator<<(std::ostream& os, const Point2D& A) 
+{
+    os << "(" << A.mX << ", " << A.mY << ")";
+    return os;
+}
