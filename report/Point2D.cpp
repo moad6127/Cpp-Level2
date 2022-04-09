@@ -3,12 +3,12 @@
 #include "Point2D.h"
 
 
-Point2D::Point2D()
+Point2D::Point2D() : mX{ 0 }, mY{ 0 }
 {
-    mX = 0;
-    mY = 0;
 }
-
+Point2D::Point2D(float x, float y) : mX{ x }, mY{ y }
+{
+}
 void Point2D::SetX(float value)
 {
     mX = value;
@@ -27,4 +27,12 @@ float Point2D::ZeroPointLength()
 void Point2D::PirntX_Y()
 {
     std::cout << "(" << mX << ", " << mY << ")" << std::endl;
+}
+
+Point2D operator+(const Point2D& A, const Point2D& B)
+{
+    Point2D temp{};
+    temp.mX = A.mX + B.mX;
+    temp.mY = A.mY + B.mY;
+    return temp;
 }

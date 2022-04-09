@@ -4,24 +4,9 @@
 
 int main()
 {
-	Point2D p1{};
-	p1.SetX(3);
-	p1.SetY(5);
-	std::cout << p1.ZeroPointLength() << std::endl;
-	p1.PirntX_Y();
-
-	Student student[10]{};
-	for (int i = 0; i < 10; i++)
-	{		//이름 입력받기
-		char name[10];
-		std::cin >> name;
-		student[i].SetName(name);
-	}
-	student[1].SetScore(30);
-	student[5].SetScore(50);
-	Class class1;
-	class1.SetStudent(student);
-	class1.PrintStudentList();
-	std::cout<<"학생들의 총합 : " << class1.SumStudentScore() << std::endl;
-
+	Point2D A1{3,4};
+	Point2D A2{ 1,1 };
+	Point2D A3;
+	A3 = A1 + A2;
+	A3.PirntX_Y();
 }
