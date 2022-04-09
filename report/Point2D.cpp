@@ -9,6 +9,7 @@ Point2D::Point2D() : mX{ 0 }, mY{ 0 }
 Point2D::Point2D(float x, float y) : mX{ x }, mY{ y }
 {
 }
+
 void Point2D::SetX(float value)
 {
     mX = value;
@@ -27,6 +28,13 @@ float Point2D::ZeroPointLength()
 void Point2D::PirntX_Y()
 {
     std::cout << "(" << mX << ", " << mY << ")" << std::endl;
+}
+
+Point2D& Point2D::operator=(const Point2D& B)
+{
+    mX = B.mX;
+    mY = B.mY;
+    return *this;
 }
 
 Point2D operator+(const Point2D& A, const Point2D& B)

@@ -15,7 +15,9 @@ public:
 	void SetY(float value);
 	float ZeroPointLength();
 	void PirntX_Y();
+	Point2D& operator=(const Point2D& B);
 };
 Point2D operator+(const Point2D& A, const Point2D& B);
 Point2D operator-(const Point2D& A, const Point2D& B);
+
 
