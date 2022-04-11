@@ -139,11 +139,16 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Cat.cpp" />
+    <ClCompile Include="Animal.cpp" />
+    <ClCompile Include="Dog.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Cat.h" />
+    <ClInclude Include="Animal.h" />
+    <ClInclude Include="Dog.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ClassDiagram.cd" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
