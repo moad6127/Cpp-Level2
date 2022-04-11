@@ -7,5 +7,5 @@ int main()
 	happy.Sound();
 	happy.Roll();
 	happy.SetAge(3);
-
+	
 }

@@ -32,3 +32,9 @@ void Dog::Roll()
 {
     std::cout << "Rolling..." << std::endl;
 }
+
+void Dog::Sound()
+{
+    Animal::Sound();
+    std::cout << "¸Û¸Û!!" << std::endl;
+}

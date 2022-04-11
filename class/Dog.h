@@ -17,5 +17,6 @@ public:
 	void SetBreed(BREED breed);
 
 	void Roll();
+	void Sound();
 };
 
