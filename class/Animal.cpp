@@ -1,6 +1,11 @@
 #include<iostream>
 #include "Animal.h"
 
+Animal::Animal(int age, int weight) : mAge{age}, mWeight{weight}
+{
+    std::cout << "[Animal] constructor!(age,weight)" << std::endl;
+}
+
 Animal::Animal() : mAge{1},mWeight{1}
 {
     std::cout << "[Animal] constructor!" << std::endl;

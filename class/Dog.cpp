@@ -1,6 +1,12 @@
 #include<iostream>
 #include "Dog.h"
 
+Dog::Dog(int age, int weight, BREED breed) : Animal(age,weight),
+   mBreed{ breed }
+{
+    std::cout << "[Dog] constructor!(age,weight)" << std::endl;
+}
+
 Dog::Dog() : mBreed{RETRIEVER}
 {
     std::cout << "[Dog] constructor!" << std::endl;

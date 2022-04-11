@@ -5,6 +5,7 @@ protected:
 	int mAge;
 	int mWeight;
 public:
+	Animal(int age, int weight);
 	Animal();
 	~Animal();
 

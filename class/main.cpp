@@ -2,9 +2,10 @@
 #include"Dog.h"
 int main()
 {
-	Dog happy; // == Dog happy = Dog();
+	Dog happy{1,1,Dog::BEAGEL}; // == Dog happy = Dog();
 
 	happy.Sound();
 	happy.Roll();
 	happy.SetAge(3);
+
 }

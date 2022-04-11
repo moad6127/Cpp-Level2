@@ -10,7 +10,7 @@ public:
 private:
 	BREED mBreed;
 public:
-	
+	Dog(int age, int weight, BREED breed);
 	Dog();
 	~Dog();
 	BREED GetBreed() const;
