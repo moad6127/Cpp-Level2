@@ -14,6 +14,6 @@ public:
 	int GetWeight()const;
 	void SetWeight(int weight);
 
-	void Sound();
+	 virtual void Sound() ;
 };
 
