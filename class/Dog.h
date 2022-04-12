@@ -18,5 +18,10 @@ public:
 
 	void Roll();
 	void Sound() override;
+
+	Animal* Clone()
+	{
+		return new Dog(*this);
+	}
 };
 

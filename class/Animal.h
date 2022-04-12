@@ -7,7 +7,7 @@ protected:
 public:
 	Animal(int age, int weight);
 	Animal();
-	~Animal();
+	virtual ~Animal();
 
 	int GetAge() const;
 	void SetAge(int age);
@@ -15,5 +15,6 @@ public:
 	void SetWeight(int weight);
 
 	 virtual void Sound() ;
+	 virtual Animal* Clone();
 };
 
