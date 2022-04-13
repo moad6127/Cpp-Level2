@@ -1,12 +1,13 @@
 #include <iostream>
-#include"Dog.h"
+#include"Warrior.h"
 
 int main()
 {
-	Animal* pAnim = new Dog();
 
-	pAnim->Sound(); 
+	Character* pHero = new Warrior;
+	pHero->Attack();
+	
+	delete pHero;
 
-	delete pAnim;
 
 }

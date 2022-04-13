@@ -18,22 +18,19 @@
     <ClCompile Include="main.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Animal.cpp">
+    <ClCompile Include="Character.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
-    <ClCompile Include="Dog.cpp">
+    <ClCompile Include="Warrior.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Animal.h">
+    <ClInclude Include="Character.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-    <ClInclude Include="Dog.h">
+    <ClInclude Include="Warrior.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>
