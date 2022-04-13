@@ -11,7 +11,3 @@ Character::~Character()
 	std::cout << "-[Character] destructed" << std::endl;
 }
 
-void Character::Attack() const
-{
-	std::cout << "\tvirtual attack!" << std::endl;
-}

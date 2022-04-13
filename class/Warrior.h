@@ -7,6 +7,8 @@ public:
 	~Warrior();
 
 	void Attack() const override;
+	void Dead() const override;
+
 	void DoubleSlash() const; //Warrior 전용스킬
 };
 
