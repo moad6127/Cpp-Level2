@@ -1,37 +1,32 @@
 #include <iostream>
+#include<array>
 #include<vector>
-#include<algorithm>
-
-//int compare(const void* left, const void* right)
-//{
-//	int arg1 = *static_cast<const int*> (left);
-//	int arg2 = *static_cast<const int*>(right);
-//
-//	return arg1- arg2;
-//}
 
 
 int main()
 {
-	std::vector<int> v{5,4,3,2,1 };
+	//std::array<int, 4> container{ 0,1,2,3 };
+	std::vector<int> container{0,1,2,3,4};
+	//
+	//container.push_back(5);
+	//container.pop_back();
+	//container.erase(container.begin());
+	container.resize(12,4);
+	container.clear();
 
-	//C-style
-	std::qsort(&v[0],v.size(),sizeof(int),
-				[](const void* left , const void* right) ->int
-				{
-				int arg1 = *static_cast<const int*> (left);
-				int arg2 = *static_cast<const int*>(right);
-
-				return arg1 - arg2; 
-				}
-	);
-
-	//C++ style
-	//std::sort(v.begin(), v.end());
-
-
-	for (const auto& e : v)
+	for (const auto& e : container)
 	{
-		std::cout << e << std::endl;
+		std::cout << e << " ";
 	}
+	std::cout << "\n";
+	for (auto itr = container.begin(); itr != container.end(); itr++)
+	{
+		std::cout << *itr << " ";
+	}
+	std::cout << "\n";
+	for (int i = 0; i < container.size(); i++)
+	{
+		std::cout << container[i] << " ";
+	}
+	std::cout << "\n";
 }
