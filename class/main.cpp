@@ -1,15 +1,39 @@
 #include<iostream>
-#include<list>
-#include<deque>
 #include<algorithm>
-
+#include<stack>
+#include<queue>
 int main()
 {
-	std::deque<int> container{ 3,4,5 };
-	container;
-	for (const auto& e : container)
+	//std::stack<int> container;
+	//container.push(1);
+	//container.push(2);
+	//container.push(3);
+	//container.pop();
+
+	//std::queue<int> container;
+	//container.push(1);
+	//container.push(2);
+	//container.push(3);
+	
+	std::priority_queue<int> q;
+	q.push(1);
+	q.push(1);
+	q.push(2);
+	q.push(2);
+	q.push(3);
+	q.push(2);
+	q.push(1);
+	std::cout << q.top() << std::endl;
+	q.pop();
+	std::cout << q.top() << std::endl;
+	//for (const auto& e : container)
+	//{
+	//	std::cout << e << " ";
+	//}
+	/*for (int i = 0; i < container.size(); i++)
 	{
-		std::cout << e << " ";
-	}
+		std::cout << container[i] << " ";
+	}*/
+
 	std::cout << std::endl;
 }
