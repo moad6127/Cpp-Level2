@@ -1,129 +1,99 @@
 #include<iostream>
 #include<string>
-#include<vector>
+#include<map>
 #include<algorithm>
 class Student
 {
 public:
-	int mNumber;
 	std::string mName;
 	int mScore;
 
 public:
 	void Pirnt() const
 	{
-		std::cout << "번호 : " << mNumber << std::endl;
 		std::cout << "이름: " << mName << std::endl;
 		std::cout << "점수 : " << mScore << std::endl;
 	}
 
 };
-using Students = std::vector<Student>;
+using Students = std::map<int, Student>;
 
 
-void AddStudent(Students& vector)
+void AddStudent(Students& map)
 {
-	//번호, 이름, 점수 입력
-	Student temp;
-	if (std::cin >> temp.mNumber >> temp.mName >> temp.mScore)
+	std::cout << "번호 이름 점수 : ";
+	Student newStudent;
+	int number{};
+	if (std::cin >> number >> newStudent.mName >> newStudent.mScore)
 	{
-		auto itr = std::find_if(vector.begin(), vector.end(), [&](auto& e)
-			{
-				return e.mNumber == temp.mNumber;
-			});
-		if (itr != vector.end())
+		//auto => std::pair<std::map<int,Student> >::iteraotr, bool>
+		auto result = map.insert({number,newStudent});
+		if (result.second == false)
 		{
+			std::cout << "==============================" << std::endl;
 			std::cout << "중복된 번호 입니다." << std::endl;
-			return;
+			std::cout << "==============================" << std::endl;
 		}
-		/*for (const auto& e : vector)
-		{
-			if (e.mNumber == temp.mNumber)
-			{
-				std::cout << "중복된 번호 입니다." << std::endl;
-				return;
-			}
-		}*/
-		vector.push_back(temp);
 	}
 	else
 	{
 		std::cout << "잘못된 입력입니다." << std::endl;
-		return;
 	}
-	
 }
-void RemoveStudent(Students& vector)
+void RemoveStudent(Students& map)
 {
-	//번호로 삭제
-	int removeNum{};
-	std::cout << "삭제할 학생의 번호를 입력하세요: ";
-	if (std::cin >> removeNum)
+	std::cout << "지울 학생 번호 : ";
+	int number{};
+	if (std::cin >> number)
 	{
-		Students::iterator itr = std::remove_if(vector.begin(), vector.end(), [&](auto& e)
-			{
-				return e.mNumber == removeNum;
-			});
-		if (itr == vector.end())
+		if (map.erase(number) == 0)
 		{
-			std::cout << "삭제할 학생이 없습니다." << std::endl;
+			std::cout<<"없는 번호입니다."<<std::endl;
 		}
-		vector.erase(itr);
-
-
-		/*Students::iterator itr;
-		for (itr = vector.begin(); itr != vector.end(); itr++)
-		{
-			if (itr->mNumber == removeNum)
-			{
-				vector.erase(itr);
-				return;
-			}
-		}*/
-		
 	}
 	else
 	{
-
-	}
-
-	
-}
-void PrintStudents(const Students& vector)
-{
-	for (int i = 0 ; i<vector.size();i++)
-	{
-		std::cout << "=========================================" << std::endl;
-		vector[i].Pirnt();
-		std::cout << "==========================================" << std::endl;
+		std::cout << "잘못된 입력입니다." << std::endl;
 	}
 }
-void PrintScoreInfo(const Students& vector)
+void PrintStudents(const Students& map)
 {
-	int sum{};
-	for (const auto& e : vector)
+	for (const auto& e : map)
 	{
-		sum += e.mScore;
+		std::cout << "==============================" << std::endl;
+		std::cout << "번호 : " << e.first << std::endl;
+		e.second.Pirnt();
+		std::cout << "==============================" << std::endl;
 	}
-	std::cout << "==========================================" << std::endl;
-	std::cout << "학생들의 총점은 : "<<sum << std::endl;
-	std::cout << "학생들의 평균은 :" << float(sum) / vector.size() << std::endl;
-	std::cout << "==========================================" << std::endl;
 }
-void PrintOverAverage(const Students& vector)
+void PrintScoreInfo(const Students& map)
 {
-	int sum{};
-	for (const auto& e : vector)
+	float sum{};
+	for (const auto& e : map)
 	{
-		sum += e.mScore;
+		sum += e.second.mScore;
 	}
-	for (int i = 0; i < vector.size(); i++)
+	std::cout << "==============================" << std::endl;
+	std::cout << "총점 : " << sum << std::endl;
+	std::cout << "평균 : " << sum / map.size() << std::endl;
+	std::cout << "==============================" << std::endl;
+}
+void PrintOverAverage(const Students& map)
+{
+	float average{};
+	for (const auto& e : map)
 	{
-		if (vector[i].mScore > (float(sum) / vector.size()))
+		average += e.second.mScore;
+	}
+	average /= map.size();
+	for (const auto& e : map)
+	{
+		if (e.second.mScore >= average)
 		{
-			std::cout << "==========================================" << std::endl;
-			vector[i].Pirnt();
-			std::cout << "==========================================" << std::endl;
+			std::cout << "==============================" << std::endl;
+			std::cout << "번호 : " << e.first << std::endl;
+			e.second.Pirnt();
+			std::cout << "==============================" << std::endl;
 		}
 	}
 }
@@ -133,11 +103,11 @@ int main()
 	//2. Lee 20
 	//3. Park 50
 	//4. Choi 30
-	std::vector<Student> students{
-		{1,"Kim",80},
-		{2,"Lee",20},
-		{3,"Park",50},
-		{4,"Choi",30}
+	Students students{
+		{1,{"Kim",80}},
+		{2,{"Lee",20}},
+		{3,{"Park",50}},
+		{4,{"Choi",30}}
 	};
 	int command{};
 	while (command != 6)
