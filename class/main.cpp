@@ -1,16 +1,16 @@
 #include<iostream>
 
-enum class MyEnum1
-{
-	Color =1,
-	Alpha =2
-};
-enum class MyEnum2
-{
-	Color =1
-};
 int main()
 {
-	MyEnum1::Color;
-	MyEnum2::Color;
+	// "'/'" 을 출력해보기
+	std::string str = " \" \' \\ \' \" ";
+
+	// Raw String Literal
+	std::string str2 = R"("'\'")";
+	std::cout << str2 << std::endl;
+	std::string str3 = R"(
+	"Hello",
+	"My Name Is DSEFSEFSE"
+	)";
+	std::cout << str3 << std::endl;
 }
