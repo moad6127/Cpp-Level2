@@ -1,20 +1,16 @@
 #include<iostream>
 
-class MyClass
+enum class MyEnum1
 {
-public:
-	int x[100];
+	Color =1,
+	Alpha =2
 };
-template<typename T>
-void Swap(T& a, T& b)
+enum class MyEnum2
 {
-	T temp = std::move(a);
-	a =std::move( b) ;
-	b= std::move(temp) ;
-}
+	Color =1
+};
 int main()
 {
-	int x{ 10 }, y{ 20 };
-	Swap<int>(x, y);
-	std::cout << x << " : " << y << std::endl;
+	MyEnum1::Color;
+	MyEnum2::Color;
 }
