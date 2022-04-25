@@ -1,16 +1,35 @@
 #include<iostream>
 
+void Function()
+{
+	//base
+	std::cout << "---end---" << std::endl;
+}
+template<typename T, typename... Types>
+void Function(T arg, Types... args)
+{
+	std::cout << arg << " ";
+	//recursive
+	Function(args...);
+}
+
 int main()
 {
-	// "'/'" 을 출력해보기
-	std::string str = " \" \' \\ \' \" ";
-
-	// Raw String Literal
-	std::string str2 = R"("'\'")";
-	std::cout << str2 << std::endl;
-	std::string str3 = R"(
-	"Hello",
-	"My Name Is DSEFSEFSE"
-	)";
-	std::cout << str3 << std::endl;
+	Function(1, 2, 3);
+	Function(1, 1.0, "abc");
 }
+
+
+
+////Factory Pattern
+
+//Warrior* Make();
+//Archer* Make(int arg1);
+//Wizard* Make(int arg1, int arg2);
+//Thief* Make(double arg1);
+
+//template<typename T, typename... Types>
+//T* Make(Types... arg)
+//{
+//	return T(args...);
+//}
