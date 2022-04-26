@@ -1,6 +1,7 @@
 #include<iostream>
 #include<thread>
 #include<mutex>
+#include<future>
 
 //mutual exclusion : mutex
 std::mutex gMutex;
@@ -47,11 +48,19 @@ void PrintAscii()
 }
 int main()
 {
-	std::thread worker1(PrintInt);
-	std::thread worker2(PrintAscii);
-	
-	worker1.join();
-	worker2.join();
+	//std::thread worker1(PrintInt);
+	//std::thread worker2(PrintAscii);
+	//
+	//worker1.join();
+	//worker2.join();
+	//
+	//std::cout << "---모든 작업이 끝났습니다--" << std::endl;
+	std::future<void> async1 = std::async(PrintInt);
+	std::future<void> async2 = std::async(PrintAscii);
 
-	std::cout << "---모든 작업이 끝났습니다--" << std::endl;
+	std::cout << "-----모든 작업이 끝났습니다-----" << std::endl;
+	async1.get();
+	std::cout << "PrintInt 완료" << std::endl;
+	async2.get();
+	std::cout << "PrintAscii 완료" << std::endl;
 }
