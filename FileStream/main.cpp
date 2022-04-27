@@ -4,43 +4,35 @@
 bool LoadFile(const std::string& filename)
 {
 	//	1. 파일 스트림 객체 생성
-	std::ifstream ifs(filename);
+	std::ifstream ifs;
+	ifs.exceptions( std::ifstream::badbit);
 
-	//ifs.fail()
-	if (!ifs)
+	try
 	{
-		std::cout << filename << "을 찾을수 없습니다" << std::endl;
+		//파일 읽기
+		ifs.open(filename);
+
+		char ch;
+		while (ifs.get(ch))
+		{
+			std::cout << ch;
+		}
+
+		//	3. 파일 닫기
+		ifs.close();
+
+	}
+	catch (std::ifstream::failure e)
+	{
+		std::cout << "파일 작업 도중 에러가 발생했습니다." << std::endl;
+		std::cout << e.code() << std::endl;
+		std::cout <<e.what() << std::endl;
+
+		ifs.close();
 		return false;
 	}
-
-	//	2. 파일 작업
-	//char ch;
-	//while (ifs)
-	//{
-	//	ifs.get(ch);
-	//	std::cout << ch;
-	//}
-	char ch;
-	while (ifs >> ch)
-	{
-		if (ifs.bad())
-		{
-			std::cout << "파일이 손상되었습니다." << std::endl;
-			ifs.close();
-			return false;
-		}
-		if (ifs.fail())
-		{
-			std::cout << "의도하지않은 작업 입니다." << std::endl;
-			ifs.close();
-			return false;
-		}
-		std::cout << ch;
-	}
-
-	//	3. 파일 닫기
-	ifs.close();
 	return true;
+
 }
 
 
