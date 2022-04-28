@@ -43,8 +43,29 @@ bool SaveToFile(const std::string& fileName, std::vector<Monster> monsters)
 	}
 	return true;
 }
-bool LoadFromFile(const std::string& fileName, std::vector<Monster>monsters)
+bool LoadFromFile(const std::string& fileName, std::vector<Monster>& monsters)
 {
+	std::ifstream ifs;
+	ifs.exceptions(std::ifstream::badbit | std::ifstream::failbit);
+	try
+	{
+		ifs.open(fileName, std::ifstream::binary);
+		Header h;
+		ifs.read(reinterpret_cast<char*>(&h), sizeof(Header));
+		for (int i = 0; i < h.monsterCount; i++)
+		{
+			Monster m;
+			ifs >> m;
+			monsters.push_back(m);
+		}
+		ifs.close();
+	}
+	catch (std::ifstream::failure  e)
+	{
+		std::cout << "읽기 도중 예외가 발생 : " << e.what() << std::endl;
+		ifs.close();
+		return false;
+	}
 	return true;
 }
 int main()
@@ -55,5 +76,8 @@ int main()
 		{"DEMON",10,10,10}
 	};
 	SaveToFile("Data/SimpleData.dat", monsters);
+
+	monsters.clear();
+	LoadFromFile("Data/SimpleData.dat", monsters);
 
 }
