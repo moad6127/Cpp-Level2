@@ -1,67 +1,56 @@
 #include<iostream>
-#include<string>
 #include<vector>
-#include<fstream>
-#include<regex>
-class Sprite
-{
-public:
-	std::string n;
-	int			x;
-	int			y;
-	int			w;
-	int			h;
-};
+#include<string>
 
-void LoadXML(const std::string& filename, std::vector<Sprite>& sprites)
-{
-	std::ifstream file(filename,std::ifstream::binary);
+#include"tinyxml2.h"
+#include"monster.h"
 
-	std::string line;
-	std::regex pattern("\"([^\"]*)\"");
-	while (!file.eof())
+using namespace tinyxml2;
+
+bool LoadFromXML(std::string filename, std::vector<Monster>& monsters)
+{
+	XMLDocument doc;
+	if (doc.LoadFile(filename.c_str()) != XML_SUCCESS)
 	{
-		std::getline(file, line);
-
-		auto result = line.find("<sprite");
-		if (result != std::string::npos)
-		{
-			std::sregex_iterator current(line.begin(), line.end(), pattern);
-			std::sregex_iterator end;
-
-			int index{};
-			Sprite sprite;
-			while (current != end)
-			{
-				std::string token = (*current)[1];
-
-				switch (index)
-				{
-				case 0:
-					sprite.n = token;
-					break;
-				case 1:
-					sprite.x = std::stoi(token);
-					break;
-				case 2:
-					sprite.y = std::stoi(token);
-					break;
-				case 3:
-					sprite.w = std::stoi(token);
-					break;
-				case 4:
-					sprite.h = std::stoi(token);
-					break;
-				}
-				current++;
-				index++;
-			}
-			sprites.push_back(sprite);
-		}
+		std::cout << "Can't not find file " << filename << std::endl;
+		return false;
 	}
+	auto pRootNode = doc.FirstChildElement("monsters");
+
+	for (auto pMonsterNode = pRootNode->FirstChildElement();
+		pMonsterNode;
+		pMonsterNode = pMonsterNode->NextSiblingElement())
+	{
+		Monster monster;
+		monster.SetName(pMonsterNode->Attribute("name"));
+		Status status;
+		auto pStatusNode = pMonsterNode->FirstChildElement("status");
+		status.mLevel = (pStatusNode->IntAttribute("level"));
+		status.mHP = (pStatusNode->IntAttribute("hp"));
+		status.mMP = (pStatusNode->IntAttribute("mp"));
+		monster.SetStatus(status);
+		
+
+		auto pItemsNode = pMonsterNode->FirstChildElement("items");
+		for (auto pItemNode = pItemsNode->FirstChildElement();
+			pItemNode;
+			pItemNode = pItemNode->NextSiblingElement())
+		{
+			Item item;
+			item.mName = pItemNode->Attribute("name");
+			item.mGold = pItemNode->IntAttribute("gold");
+
+			monster.AddItem(item);
+		}
+		monsters.push_back(monster);
+	}
+
+	return true;
 }
+
 int main()
 {
-	std::vector<Sprite> sprites;
-		LoadXML("data/mydata.xml", sprites);
+	std::vector<Monster> monsters;
+
+	LoadFromXML("data/mydata.xml", monsters);
 }
