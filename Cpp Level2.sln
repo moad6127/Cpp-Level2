@@ -11,6 +11,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "FileStream", "FileStream\Fi
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SImpleXML", "SImpleXML\SImpleXML.vcxproj", "{5982FABE-A3E7-4DDE-A655-BE8AA30D02C1}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SImpleJSON", "SImpleJSON\SImpleJSON.vcxproj", "{599414BF-C77B-4AF9-B14E-F386AFC13F64}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -51,6 +53,14 @@ Global
 		{5982FABE-A3E7-4DDE-A655-BE8AA30D02C1}.Release|x64.Build.0 = Release|x64
 		{5982FABE-A3E7-4DDE-A655-BE8AA30D02C1}.Release|x86.ActiveCfg = Release|Win32
 		{5982FABE-A3E7-4DDE-A655-BE8AA30D02C1}.Release|x86.Build.0 = Release|Win32
+		{599414BF-C77B-4AF9-B14E-F386AFC13F64}.Debug|x64.ActiveCfg = Debug|x64
+		{599414BF-C77B-4AF9-B14E-F386AFC13F64}.Debug|x64.Build.0 = Debug|x64
+		{599414BF-C77B-4AF9-B14E-F386AFC13F64}.Debug|x86.ActiveCfg = Debug|Win32
+		{599414BF-C77B-4AF9-B14E-F386AFC13F64}.Debug|x86.Build.0 = Debug|Win32
+		{599414BF-C77B-4AF9-B14E-F386AFC13F64}.Release|x64.ActiveCfg = Release|x64
+		{599414BF-C77B-4AF9-B14E-F386AFC13F64}.Release|x64.Build.0 = Release|x64
+		{599414BF-C77B-4AF9-B14E-F386AFC13F64}.Release|x86.ActiveCfg = Release|Win32
+		{599414BF-C77B-4AF9-B14E-F386AFC13F64}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
